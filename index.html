@@ -143,7 +143,12 @@ button:focus-visible{outline:4px solid #7a4dff;outline-offset:2px}
 .opt{min-height:96px;background:#fff;border:3px solid var(--ink);border-radius:22px;box-shadow:0 6px 0 var(--ink);font-size:clamp(1.5rem,8vw,2.6rem);font-weight:800;padding:6px;overflow-wrap:anywhere;line-height:1.1;display:flex;align-items:center;justify-content:center}
 .opt.ok{background:#b5efcb}.opt.no{background:#ffd0d0}
 .dot{display:inline-block;width:1.1em;height:1.1em;border-radius:50%;border:3px solid var(--ink)}
-.sh{font-style:normal;filter:brightness(0) opacity(.8)}
+.shd{display:inline-block;font-style:normal;filter:brightness(0) opacity(.8)}
+.shrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.sl.shs{width:5.4rem;height:5.4rem;background:#fff;border:3px dashed var(--ink);border-radius:16px;font-size:4rem;line-height:1;justify-content:center;align-items:center}
+.sl.shs.okd{border-style:solid;background:#b5efcb}
+.sl.shs .pd{font-size:4rem;line-height:1}
+.pc.sg{width:5.4rem;height:5.4rem;display:flex;align-items:center;justify-content:center;font-size:4rem;line-height:1;background:#fff;border:3px solid var(--ink);border-radius:16px;user-select:none}
 .half{display:inline-block;width:.5em;height:1em;overflow:hidden;vertical-align:middle;line-height:1}
 .half i{display:block;width:1em;font-style:normal}.half.r i{margin-left:-.5em}
 #fb{min-height:2.2rem;text-align:center;font-weight:800;font-size:1.3rem;margin-top:12px}
@@ -256,7 +261,7 @@ $('#snd').onclick=()=>{mute=!mute;store.mute=mute;save();snd();if(!mute)sfx.clic
 let lang=store.lang||((navigator.language||'id').toLowerCase().startsWith('id')?'id':'en');
 const TRD={'Kembali':'Back','Main Pintar':'Main Pintar','Pilih teman bermainmu!':'Choose your playmate!','MAIN ▶':'PLAY ▶','1. Pilih usia anak':'1. Choose the age','2. Pilih permainan':'2. Choose a game','3. Pilih level':'3. Choose a level','Hasil terakhir':'Last result','Mulai ▶':'Start ▶','tahun':'years','💡 Bantuan':'💡 Help','Selesai! 🎉':'All done! 🎉','Main lagi':'Play again','Kembali ke menu':'Back to menu',
 'Berhitung':'Counting','Pola Gambar':'Picture Patterns','Pola Bayangan':'Shadow Match','Hubungkan Warna':'Colors','Puzzle':'Puzzle','Huruf Alfabet':'Alphabet','Angka':'Numbers','Kenali Benda':'Know Objects','Cocokkan Benda':'Matching','Bentuk dan Ukuran':'Shapes and Sizes','Ikatan Bilangan':'Number Bonds',
-'Ada berapa?':'How many?','Pilih jumlah yang sama':'Pick the same amount','Mana yang lebih banyak?':'Which has more?','Mana yang lebih sedikit?':'Which has fewer?','Lihat sekilas. Ada berapa?':'Take a quick look. How many?','Berapa jumlahnya?':'How many in all?','Berapa sisanya?':'How many are left?','Berapa yang hilang?':'How many are missing?','Benar atau salah?':'True or false?','Apa gambar berikutnya?':'What comes next?','Lengkapi polanya':'Complete the pattern','Susun urutannya':'Put them in order','Antar temanmu ke apel':'Take your friend to the apple','Ini bayangan apa?':'Whose shadow is this?','Mana bayangannya?':'Which is the shadow?','Pilih warna yang sama.':'Pick the same color.','Benda apa yang warnanya sama?':'Which object has the same color?','Susun puzzlenya':'Complete the puzzle','Pilih huruf yang sama.':'Pick the same letter.','Pilih huruf kecil yang sama.':'Pick the matching small letter.','Huruf pertama benda ini?':'What letter does this start with?','Angka sesudah ini?':'What number comes after?','Angka sebelum ini?':'What number comes before?','Mana yang sekelompok?':'Which one belongs together?','Mana yang berbeda?':'Which one is different?','Cari yang sama.':'Find the same one.','Mana pasangannya?':'Which one is its pair?','Mana yang lebih besar?':'Which is bigger?','Mana yang lebih kecil?':'Which is smaller?','Lengkapi ikatan bilangan':'Complete the number bond',
+'Ada berapa?':'How many?','Pilih jumlah yang sama':'Pick the same amount','Mana yang lebih banyak?':'Which has more?','Mana yang lebih sedikit?':'Which has fewer?','Lihat sekilas. Ada berapa?':'Take a quick look. How many?','Berapa jumlahnya?':'How many in all?','Berapa sisanya?':'How many are left?','Berapa yang hilang?':'How many are missing?','Benar atau salah?':'True or false?','Apa gambar berikutnya?':'What comes next?','Lengkapi polanya':'Complete the pattern','Susun urutannya':'Put them in order','Antar temanmu ke apel':'Take your friend to the apple','Ini bayangan apa?':'Whose shadow is this?','Seret bayangan ke objeknya':'Drag the shadow to its object','Seret objek ke bayangannya':'Drag the object to its shadow','Mana bayangannya?':'Which is the shadow?','Pilih warna yang sama.':'Pick the same color.','Benda apa yang warnanya sama?':'Which object has the same color?','Susun puzzlenya':'Complete the puzzle','Pilih huruf yang sama.':'Pick the same letter.','Pilih huruf kecil yang sama.':'Pick the matching small letter.','Huruf pertama benda ini?':'What letter does this start with?','Angka sesudah ini?':'What number comes after?','Angka sebelum ini?':'What number comes before?','Mana yang sekelompok?':'Which one belongs together?','Mana yang berbeda?':'Which one is different?','Cari yang sama.':'Find the same one.','Mana pasangannya?':'Which one is its pair?','Mana yang lebih besar?':'Which is bigger?','Mana yang lebih kecil?':'Which is smaller?','Lengkapi ikatan bilangan':'Complete the number bond',
 'Hebat sekali! 🎉':'Great job! 🎉','Pintar! ⭐':'Smart! ⭐','Benar! 👏':'Correct! 👏','Bagus, sudah selesai! 💪':'Nice, you finished! 💪','Coba lagi ya! 💪':'Try again! 💪','Hitung lagi ya! 💪':'Count again! 💪','Isi semua kotak dulu ya':'Fill all the boxes first','Ayo coba lagi ya! 💪':'Let’s try again! 💪','Belum pas, coba lagi ya!':'Not quite, try again!','Ayo terus, kamu pasti bisa! 💪':'Keep going, you can do it! 💪',
 'Sempurna!':'Perfect!','Hebat sekali!':'Great job!','Hebat, kamu sudah berusaha!':'Well done for trying!','Belum ada. Ayo mulai bermain!':'Nothing yet. Let’s play!','Skor':'Score','Benar':'Correct','dari 15 soal.':'out of 15.','Level':'Level',
 '⏰ Pengingat istirahat: ':'⏰ Rest reminder: ','menit':'min','Pengingat istirahat':'Rest reminder','Bahasa':'Language','Pengaturan':'Settings','Untuk orang tua':'For parents','Istirahat dulu ya':'Time for a rest','Mata dan badan perlu istirahat. Orang tua: jawab soal ini untuk lanjut bermain.':'Eyes and bodies need a rest. Parents: answer this question to keep playing.','Jawab soal ini untuk mengatur pengingat istirahat.':'Answer this question to change the rest reminder.','Ke halaman utama':'Go to main page','Tutup':'Close','💝 Dukung kreator':'💝 Support the creator'};
@@ -360,8 +365,13 @@ const G=[
   const fq=k=>it[pat[k%pat.length]],L=pat.length*2+1;
   return mk('Apa gambar berikutnya?',`<div class="objs">${RG(0,L-1).map(fq).join('')}<b class="q">❓</b></div>`,fq(L),[...S(OB).slice(0,6),av()],n)},
  // 2 Pola bayangan
- (a,d,n)=>{const e=U(SH),rev=d>.5&&R(0,1),f=x=>rev?`<i class="sh">${x}</i>`:x;
-  return mk(rev?'Mana bayangannya?':'Ini bayangan apa?',rev?e:`<i class="sh">${e}</i>`,f(e),SH.map(f),n)},
+ (a,d,n,i,l)=>{
+  const cnt=a<4?(a==2?(l<5?1:2):(l<4?1:2)):(l<3?1:l<6?2:3),
+   dec=cnt==1?(a==2?1:2):(a<4?1:(d>.5?2:1)),
+   ord=[...S(SH.filter(x=>!used.has(x))),...S(SH.filter(x=>used.has(x)))],
+   es=ord.slice(0,cnt),mode=R(0,1);
+  es.forEach(x=>used.add(x));
+  return{kind:'sh',mode,es,dec:ord.slice(cnt,cnt+dec),t:mode?'Seret objek ke bayangannya':'Seret bayangan ke objeknya',i:'👤'}},
  // 3 Hubungkan warna
  (a,d,n)=>{const pool=COL.slice(0,a<3?4:a<4?6:8),c=U(pool),dot=x=>`<i class="dot" style="background:${x[1]}"></i>`,m=d<.3?0:d<.65?1:P([1,2]);
   if(m==0)return mk('Pilih warna yang sama.',dot(c),dot(c),pool.map(dot),n);
@@ -443,7 +453,7 @@ function ask(){
   fbk('');$('#hand').hidden=true;
   $('#stim').onclick=tapc;$('#stim').className='stim';$('#opts').className='opts';
   $('#opts').onclick=$('#opts').onpointerdown=$('#opts').onpointermove=$('#opts').onpointerup=null;
-  if(q.kind=='pz')pz(q);else if(q.kind=='take')take(q);else if(q.kind=='pat')pat(q);else if(q.kind=='bond')bond(q);else if(q.kind=='cd')cd(q);else mcq(q);
+  if(q.kind=='pz')pz(q);else if(q.kind=='take')take(q);else if(q.kind=='pat')pat(q);else if(q.kind=='bond')bond(q);else if(q.kind=='cd')cd(q);else if(q.kind=='sh')shd(q);else mcq(q);
   arm();
   if((store.pt||0)>=(store.tm||15)*6e4)pg('rest');
 }
@@ -540,6 +550,25 @@ function pat(q){
     fbk(run.m>2?'Ayo terus, kamu pasti bisa! 💪':'Belum pas, coba lagi ya!');return false};
   dnd(pcs,drop);
 }
+function shd(q){
+  const sw=x=>`<span class="shd">${x}</span>`;
+  $('#stim').innerHTML=`<div class="shrow">${q.es.map((x,k)=>`<span class="sl bk shs" data-v="${k}">${q.mode?sw(x):x}</span>`).join('')}</div>`;
+  $('#opts').className='trz';$('#opts').innerHTML='';
+  const pcs=S([...q.es.map((x,k)=>[x,k]),...q.dec.map(x=>[x,'x'])]).map(([x,v])=>{
+    const p=document.createElement('span');p.className='pc sg';p.dataset.v=v;
+    p.innerHTML=q.mode?x:sw(x);$('#opts').appendChild(p);return p});
+  let done=0;
+  const drop=(p,s)=>{
+    if(s.dataset.v==p.dataset.v){
+      s.textContent='';const o=document.createElement('span');o.className='pd';o.textContent=q.es[+s.dataset.v];
+      s.appendChild(o);s.classList.remove('bl');s.classList.add('okd');p.remove();
+      tone(600,1100,.12,.25,'triangle');if(++done==q.es.length)fin(run.m<=2);return true}
+    run.m++;sfx.no();p.classList.remove('sel');
+    fbk(run.m>2?'Ayo terus, kamu pasti bisa! 💪':'Belum pas, coba lagi ya!');
+    if(run.m>=2){const nx=pcs.find(z=>z.isConnected&&slotFor(z));if(nx)slotFor(nx).classList.add('bl')}
+    return false};
+  dnd(pcs,drop);
+}
 function bond(q){
   const c=q.cells,cell=(k,cls)=>q.bl.includes(k)?`<span class="sl bk ${cls}" data-v="${c[k]}"></span>`:`<span class="num ${cls}">${c[k]}</span>`;
   const pics=q.pic?`<div class="bgrp">${q.sub?`<span class="g">${q.e.repeat(q.T-q.y)}<span class="gr">${q.e.repeat(q.y)}</span></span>`:`<span class="g">${q.e.repeat(q.x)}</span><b>＋</b><span class="g">${q.f.repeat(q.y)}</span>`}</div>`:'';
@@ -589,7 +618,7 @@ function arm(){
   idle=setTimeout(demo,7000);
 }
 document.addEventListener('pointerdown',()=>{if(run&&$('#game').classList.contains('on'))arm()});
-const isDrag=q=>['pz','pat','bond'].includes(q.kind);
+const isDrag=q=>['pz','pat','bond','sh'].includes(q.kind);
 const slotFor=el=>[...$('#stim').querySelectorAll('.sl')].find(s=>!s.querySelector('.pd')&&(el.dataset.v!=null?s.dataset.v==el.dataset.v:s.dataset.s==el.dataset.p));
 function demo(){
   if(locked||!run||!$('#game').classList.contains('on'))return;
@@ -614,7 +643,7 @@ function demo(){
 $('#help').onclick=()=>{
   if(locked||!run)return;arm();const q=run.items[run.q];
   if(q.kind=='take')[...document.querySelectorAll('#opts .it')].slice(0,q.N).forEach(x=>x.classList.add('bl'));
-  else if(isDrag(q)){const nx=[...$('#opts').children].find(z=>z.classList.contains('pc')),sl=nx&&slotFor(nx);if(sl)sl.classList.add('bl')}
+  else if(isDrag(q)){const nx=[...$('#opts').children].find(z=>z.classList.contains('pc')&&slotFor(z)),sl=nx&&slotFor(nx);if(sl)sl.classList.add('bl')}
   else if(q.kind=='cd'){q.fill();return}
   else $('#opts').children[q.k].classList.add('bl');
   demo();
