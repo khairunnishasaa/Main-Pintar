@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Main Pintar</title>
+<meta name="theme-color" content="#bfe3ff">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3a2d63;--cream:#fff8e6}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:"Baloo 2","Trebuchet MS",system-ui,sans-serif;color:var(--ink);min-height:100vh;background:linear-gradient(#bfe3ff,#eadcff 60%,#9fe3a0) fixed;padding:14px 12px 40px}
+.w{max-width:520px;margin:0 auto}
+.scr{display:none}.scr.on{display:block}
+h1{margin:0;font-size:1.9rem;font-weight:800;text-align:center}
+h2{margin:0 0 10px;font-size:1.15rem}
+.card{background:var(--cream);border:4px solid var(--ink);border-radius:26px;box-shadow:0 7px 0 var(--ink);padding:16px;margin-top:16px}
+button{font-family:inherit;color:var(--ink);cursor:pointer}
+button:focus-visible{outline:4px solid #7a4dff;outline-offset:2px}
+.ages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.age{background:var(--c);border:3px solid var(--ink);border-radius:20px;padding:8px 0;box-shadow:0 5px 0 var(--ink);display:flex;flex-direction:column;align-items:center;line-height:1}
+.age b{font-size:2.4rem;font-weight:800}.age span{font-size:.85rem;font-weight:800}
+.age.on{transform:translateY(4px);box-shadow:0 1px 0 var(--ink);outline:4px solid #fff}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ty{display:flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:6px 10px;font-weight:800;font-size:1rem;text-align:left}
+.ty i{font-style:normal;font-size:1.6rem}.ty.on{background:#ffe38a}
+.lvs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.lv{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:4px 0;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.lv b{font-size:1.4rem}.lv small{font-size:.8rem;color:#e6a100}.lv.on{background:#b5efcb}
+.go{display:block;width:100%;margin-top:16px;background:#ffc933;border:4px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 var(--ink);font-size:1.8rem;font-weight:800;padding:8px}
+.go:active{transform:translateY(5px);box-shadow:0 2px 0 var(--ink)}
+.go.alt{background:#fff;font-size:1.2rem}
